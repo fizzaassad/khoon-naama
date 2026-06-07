@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI + Diet — خون نامہ</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <section class="page-hero dark">
+      <div class="container">
+        <span class="section-tag">Personalized Nutrition</span>
+        <h1>BMI + Diet <em>Planner</em></h1>
+        <p>
+          Combine your body measurements with your anemia status for a fully
+          personalized diet plan built for you.
+        </p>
+      </div>
+    </section>
+
+    <section class="bmi-section">
+      <div class="container-sm">
+        <div class="form-card">
+          <form id="bmiForm">
+            <div class="form-block">
+              <div class="form-block-title">
+                <span class="fb-num">01</span>
+                <span>Your Measurements</span>
+              </div>
+              <div class="fg three">
+                <div class="form-group">
+                  <label>Gender</label>
+                  <select id="bmiGender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Weight <em>kg</em></label>
+                  <input
+                    type="number"
+                    id="weight"
+                    placeholder="e.g. 58"
+                    step="0.1"
+                    min="1"
+                    max="300"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Height <em>cm</em></label>
+                  <input
+                    type="number"
+                    id="height"
+                    placeholder="e.g. 165"
+                    step="0.1"
+                    min="50"
+                    max="250"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-block">
+              <div class="form-block-title">
+                <span class="fb-num">02</span>
+                <span
+                  >Hemoglobin
+                  <span
+                    style="
+                      font-weight: 400;
+                      font-size: 0.85rem;
+                      color: var(--text-soft);
+                    "
+                    >(optional — for combined diet plan)</span
+                  ></span
+                >
+              </div>
+              <div class="fg two">
+                <div class="form-group">
+                  <label>Hemoglobin <em>g/dL</em></label>
+                  <input
+                    type="number"
+                    id="bmiHemoglobin"
+                    placeholder="e.g. 11.0"
+                    step="0.1"
+                    min="1"
+                    max="25"
+                  />
+                  <span class="hint">Leave empty to skip anemia analysis</span>
+                </div>
+                <div class="form-group">
+                  <label>Age</label>
+                  <input
+                    type="number"
+                    id="bmiAge"
+                    placeholder="Your age"
+                    min="1"
+                    max="100"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-analyze">
+              ⚖️ Calculate My Plan
+            </button>
+          </form>
+        </div>
+
+        <!-- RESULTS -->
+        <div id="bmiResults" class="hidden">
+          <!-- BMI Result -->
+          <div id="bmiBanner" class="result-banner"></div>
+
+          <!-- BMI Scale -->
+          <div class="result-card">
+            <div class="rc-title">📏 BMI Scale</div>
+            <div class="bmi-scale">
+              <div class="bmi-scale-bar">
+                <div class="bmi-seg underweight">Underweight<br />&lt;18.5</div>
+                <div class="bmi-seg normal">Normal<br />18.5–25</div>
+                <div class="bmi-seg overweight">Overweight<br />25–30</div>
+                <div class="bmi-seg obese">Obese<br />&gt;30</div>
+              </div>
+              <div class="bmi-marker-wrap">
+                <div class="bmi-marker" id="bmiMarker">▲</div>
+              </div>
+              <div class="bmi-value-display">
+                Your BMI: <strong id="bmiValueDisplay">—</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Combined Analysis -->
+          <div class="result-card" id="combinedCard"></div>
+
+          <!-- Diet Plan -->
+          <div class="result-card" id="bmiDietCard"></div>
+
+          <div class="disclaimer">
+            ⚠️ BMI is a general indicator. Consult a doctor or nutritionist for
+            a personalized medical diet plan.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% include 'footer.html' %}
+
+    <script src="/static/js/bmi.js"></script>
+  </body>
+</html>

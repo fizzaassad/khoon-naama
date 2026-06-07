@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles — خون نامہ</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <section class="page-hero rose">
+      <div class="container">
+        <span class="section-eyebrow">Health Education</span>
+        <h1>Learn About <em>Anemia</em></h1>
+        <p>
+          Simple, honest articles about anemia — written for people, not
+          doctors.
+        </p>
+      </div>
+    </section>
+
+    <section class="tips-section">
+      <div class="container">
+        <div class="tips-grid">
+          {% for tip in tips %}
+          <a
+            href="{{ tip.link }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="tip-card"
+            style="animation-delay: {{ loop.index0 * 0.1 }}s"
+          >
+            <div class="tip-top">
+              <span class="tip-number">{{ tip.icon }}</span>
+              <span class="tip-tag">{{ tip.tag }}</span>
+            </div>
+            <h3>{{ tip.title }}</h3>
+            <p>{{ tip.body }}</p>
+            <div class="tip-footer">
+              <span class="tip-read">{{ tip.read }}</span>
+              <span class="tip-cta">Read article &rarr;</span>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+
+        <div class="tips-bottom-cta">
+          <h3>Ready to check your own risk?</h3>
+          <p>Use our free tools — no signup required.</p>
+          <div class="tips-cta-btns">
+            <a href="/check" class="btn-primary">Check Blood Values</a>
+            <a href="/symptoms" class="btn-ghost">Check Symptoms</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% include 'footer.html' %}
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>

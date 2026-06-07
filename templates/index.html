@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khoon Naama — Anemia Risk Platform</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <section class="hero-home">
+      <div class="container">
+        <div class="hero-home-inner">
+          <div class="hero-left">
+            <p class="hero-eyebrow">AI-Powered Health Tool</p>
+            <h1>
+              Know your<br /><span class="text-rose">anemia risk</span><br />in
+              seconds.
+            </h1>
+            <p class="hero-body">
+              Enter your CBC blood test values and get instant results, severity
+              analysis, a personalized diet plan, and a downloadable medical
+              report.
+            </p>
+            <div class="hero-actions">
+              <a href="/check" class="btn-primary">Check Blood Values</a>
+              <a href="/symptoms" class="btn-secondary">Check Symptoms</a>
+            </div>
+          </div>
+          <div class="hero-right">
+            <div class="hero-panel">
+              <div class="hp-label">Sample Result</div>
+              <div class="hp-row">
+                <span class="hp-test">Hemoglobin</span>
+                <span class="hp-val">9.2 g/dL</span>
+                <span class="hp-status status-low">Low</span>
+              </div>
+              <div class="hp-row">
+                <span class="hp-test">MCH</span>
+                <span class="hp-val">28.1 pg</span>
+                <span class="hp-status status-ok">Normal</span>
+              </div>
+              <div class="hp-row">
+                <span class="hp-test">MCHC</span>
+                <span class="hp-val">32.4 g/dL</span>
+                <span class="hp-status status-ok">Normal</span>
+              </div>
+              <div class="hp-row">
+                <span class="hp-test">MCV</span>
+                <span class="hp-val">85.0 fL</span>
+                <span class="hp-status status-ok">Normal</span>
+              </div>
+              <div class="hp-result">
+                <span class="hp-result-label">Diagnosis</span>
+                <span class="hp-result-val">Mild Anemia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tools-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Platform</p>
+          <h2>Three tools, one platform.</h2>
+          <p class="section-body">
+            Everything you need to understand and manage anemia risk — no signup
+            required.
+          </p>
+        </div>
+        <div class="tools-grid">
+          <a href="/check" class="tool-card">
+            <div class="tool-number">01</div>
+            <h3>Blood Test Analyzer</h3>
+            <p>
+              Enter your CBC values and get instant AI-powered anemia risk
+              analysis with visual charts and a PDF report.
+            </p>
+            <span class="tool-link">Analyze now &rarr;</span>
+          </a>
+          <a href="/symptoms" class="tool-card tool-card-accent">
+            <div class="tool-number">02</div>
+            <h3>Symptom Checker</h3>
+            <p>
+              No blood test? Select your symptoms and get a risk score with
+              actionable recommendations.
+            </p>
+            <span class="tool-link">Check symptoms &rarr;</span>
+          </a>
+          <a href="/bmi" class="tool-card">
+            <div class="tool-number">03</div>
+            <h3>BMI + Diet Planner</h3>
+            <p>
+              Combine your body measurements with anemia status for a fully
+              personalized nutrition plan.
+            </p>
+            <span class="tool-link">Plan my diet &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-section">
+      <div class="container">
+        <div class="story-inner">
+          <div class="story-left">
+            <p class="section-eyebrow">Why This Exists</p>
+            <h2>
+              "I was diagnosed with anemia and could not find a simple tool to
+              understand my results."
+            </h2>
+            <p>
+              Most medical tools are built for doctors. Khoon Naama is built for
+              people — honest, simple, and human.
+            </p>
+            <div class="story-author">
+              <div class="author-info">
+                <span class="author-name">Fiza</span>
+                <span class="author-role">Builder · Anemia Survivor</span>
+              </div>
+            </div>
+          </div>
+          <div class="story-right">
+            <div class="stats-grid">
+              <div class="stat-box">
+                <div class="stat-number">1,421</div>
+                <div class="stat-label">Patients in training data</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Model accuracy</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Severity levels</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Tools available</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-inner">
+          <h2>Ready to check your risk?</h2>
+          <p>Free, instant, and no signup required.</p>
+          <a href="/check" class="btn-primary">Check Blood Values</a>
+        </div>
+      </div>
+    </section>
+
+    {% include 'footer.html' %}
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
