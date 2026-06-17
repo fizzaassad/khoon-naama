@@ -6,7 +6,22 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib import colors
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet
+import os
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+import pandas as pd
 
+# Train model if it doesn't exist
+if not os.path.exists('anemia_model.pkl'):
+    df = pd.read_csv('anemia.csv')
+    X = df[['Gender', 'Hemoglobin', 'MCH', 'MCHC', 'MCV']]
+    y = df['Result']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    model.fit(X_train, y_train)
+    import pickle
+    with open('anemia_model.pkl', 'wb') as f:
+        pickle.dump(model, f)
 app = Flask(__name__)
 
 with open('anemia_model.pkl', 'rb') as f:
