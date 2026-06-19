@@ -677,7 +677,7 @@ body {
 @media (max-width: 400px) {
   .fg.three, .fg.four { grid-template-columns: 1fr; }
 }
-/.logo {
+.logo {
   display: flex;
   align-items: center;
   gap: 0.65rem;
@@ -765,11 +765,24 @@ body { animation: pageIn 0.3s ease; }
   .nav-burger { display: flex; }
 }
 .footer {
-    background: #111;
+    background: #323131;
     color: white;
     padding: 40px 20px;
     margin-top: 50px;
 }
 .footer-left {
     max-width: 400px;
+}
+.footer-links a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    margin: 6px 0;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
 }
