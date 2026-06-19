@@ -642,6 +642,13 @@ body {
   font-size: 0.75rem;
   color: rgba(255,255,255,0.25);
 }
+.footer-links-title {
+  font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 0.25rem;
+  display: block;
+}
 
 @media (max-width: 900px) {
   .tips-grid { grid-template-columns: repeat(2, 1fr); }
@@ -742,13 +749,7 @@ body { animation: pageIn 0.3s ease; }
 .nav-links a.active { color: var(--text); font-weight: 600; }
 
 /* ── FOOTER LINKS TITLE ── */
-.footer-links-title {
-  font-size: 0.72rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 0.25rem;
-  display: block;
-}
+
 
 /* ── FORM FOCUS IMPROVEMENTS ── */
 .form-group input:focus,
@@ -762,4 +763,13 @@ body { animation: pageIn 0.3s ease; }
 /* ── RESPONSIVE BURGER ── */
 @media (max-width: 900px) {
   .nav-burger { display: flex; }
+}
+.footer {
+    background: #111;
+    color: white;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+.footer-left {
+    max-width: 400px;
 }
