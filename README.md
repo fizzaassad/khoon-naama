@@ -2,7 +2,7 @@
 
 **AI-powered anemia risk assessment platform.**
 
-Khoon Naama helps people understand their CBC blood test results, check anemia risk through symptoms, and get a personalized diet plan — without needing a medical degree to read a lab report.
+Khoon Naama helps people understand their CBC blood test results, check anemia risk through symptoms, and get a personalized diet plan without needing a medical degree to read a lab report.
 
 Built after personally experiencing the confusion of being diagnosed with anemia and not finding a simple, honest tool to make sense of it.
 
