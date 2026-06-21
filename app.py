@@ -163,13 +163,37 @@ def tips():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    data       = request.get_json()
-    gender_num = 1 if data['gender'] == 'Male' else 0
-    hb         = float(data['hemoglobin'])
-    mch        = float(data['mch'])
-    mchc       = float(data['mchc'])
-    mcv        = float(data['mcv'])
-    gender     = data['gender']
+    data = request.get_json()
+
+    # Validate required fields exist
+    required = ['gender', 'hemoglobin', 'mch', 'mchc', 'mcv']
+    for field in required:
+        if field not in data or data[field] in [None, '']:
+            return jsonify({'error': f'Missing value: {field}'}), 400
+
+    try:
+        hb   = float(data['hemoglobin'])
+        mch  = float(data['mch'])
+        mchc = float(data['mchc'])
+        mcv  = float(data['mcv'])
+    except (ValueError, TypeError):
+        return jsonify({'error': 'Blood values must be numbers'}), 400
+
+    gender = data['gender']
+    if gender not in ['Male', 'Female']:
+        return jsonify({'error': 'Invalid gender'}), 400
+
+    # Validate realistic medical ranges
+    if not (1 <= hb <= 25):
+        return jsonify({'error': 'Hemoglobin must be between 1 and 25 g/dL'}), 400
+    if not (1 <= mch <= 50):
+        return jsonify({'error': 'MCH must be between 1 and 50 pg'}), 400
+    if not (1 <= mchc <= 50):
+        return jsonify({'error': 'MCHC must be between 1 and 50 g/dL'}), 400
+    if not (1 <= mcv <= 150):
+        return jsonify({'error': 'MCV must be between 1 and 150 fL'}), 400
+
+    gender_num = 1 if gender == 'Male' else 0
     prediction = model.predict(np.array([[gender_num, hb, mch, mchc, mcv]]))[0]
     severity   = get_severity(hb, gender)
     diet       = DIET_PLANS[severity]

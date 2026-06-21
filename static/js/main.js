@@ -128,12 +128,26 @@ if (anemiaForm) {
     const btn = document.getElementById("btnText");
     btn.textContent = "Analyzing...";
 
-    try {
+   try {
       const res  = await fetch("/predict", {
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({ name, age, gender, hemoglobin:hb, mch, mchc, mcv }),
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, age, gender, hemoglobin: hb, mch, mchc, mcv }),
       });
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.error || "Please check your input values.");
+        return;
+      }
+
+      renderBanner(data.severity);
+      renderMetrics(hb, mch, mchc, mcv, gender);
+      renderChart(hb, mch, mchc, mcv, gender);
+      renderDiet(data.diet);
+
+      document.getElementById("results").classList.remove("hidden");
+      document.getElementById("results").scrollIntoView({ behavior: "smooth" });
       const data = await res.json();
 
       renderBanner(data.severity);
