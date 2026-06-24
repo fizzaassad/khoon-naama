@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template, send_file
 import pickle
 import numpy as np
 import io
+import logging
 from reportlab.lib.pagesizes import letter
 from reportlab.lib import colors
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
@@ -11,21 +12,75 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
-# Train model if it doesn't exist
-if not os.path.exists('anemia_model.pkl'):
-    df = pd.read_csv('anemia.csv')
+logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+logger = logging.getLogger(__name__)
+
+MODEL_PATH = 'anemia_model.pkl'
+CSV_PATH = 'anemia.csv'
+
+
+def train_and_save_model():
+    """Train a fresh RandomForest model from anemia.csv and persist it."""
+    if not os.path.exists(CSV_PATH):
+        raise FileNotFoundError(
+            f"Training data '{CSV_PATH}' not found. Cannot train model."
+        )
+    logger.info("Training new model from '%s'...", CSV_PATH)
+    df = pd.read_csv(CSV_PATH)
     X = df[['Gender', 'Hemoglobin', 'MCH', 'MCHC', 'MCV']]
     y = df['Result']
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    model = RandomForestClassifier(n_estimators=100, random_state=42)
-    model.fit(X_train, y_train)
-    import pickle
-    with open('anemia_model.pkl', 'wb') as f:
-        pickle.dump(model, f)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+    )
+    clf = RandomForestClassifier(n_estimators=100, random_state=42)
+    clf.fit(X_train, y_train)
+    with open(MODEL_PATH, 'wb') as f:
+        pickle.dump(clf, f)
+    logger.info("Model trained and saved to '%s'.", MODEL_PATH)
+    return clf
+
+
+def load_model():
+    """
+    Load the pickled model from disk.  If the file is missing, empty, or
+    corrupt the function falls back to retraining from anemia.csv so the
+    app can always start successfully.
+    """
+    if os.path.exists(MODEL_PATH):
+        file_size = os.path.getsize(MODEL_PATH)
+        logger.info(
+            "Found model file '%s' (size: %d bytes). Attempting to load...",
+            MODEL_PATH, file_size,
+        )
+        if file_size == 0:
+            logger.warning(
+                "Model file '%s' is empty. Falling back to retraining.",
+                MODEL_PATH,
+            )
+        else:
+            try:
+                with open(MODEL_PATH, 'rb') as f:
+                    clf = pickle.load(f)
+                logger.info("Model loaded successfully from '%s'.", MODEL_PATH)
+                return clf
+            except (pickle.UnpicklingError, EOFError, ValueError, TypeError) as exc:
+                logger.warning(
+                    "Failed to load model from '%s': %s. "
+                    "The file may be corrupt or was saved by an incompatible "
+                    "scikit-learn/Python version. Falling back to retraining.",
+                    MODEL_PATH, exc,
+                )
+    else:
+        logger.info(
+            "Model file '%s' not found. Training from scratch.", MODEL_PATH
+        )
+
+    return train_and_save_model()
+
+
 app = Flask(__name__)
 
-with open('anemia_model.pkl', 'rb') as f:
-    model = pickle.load(f)
+model = load_model()
 
 NORMAL_RANGES = {
     'Hemoglobin': {'Male': (13.5, 17.5), 'Female': (12.0, 15.5)},
