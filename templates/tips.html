@@ -1,66 +1,62 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Articles — خون نامہ</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/static/css/style.css" />
-  </head>
-  <body>
-    {% include 'navbar.html' %}
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Articles — Khoon Naama</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  {% include 'navbar.html' %}
 
-    <section class="page-hero rose">
-      <div class="container">
-        <span class="section-eyebrow">Health Education</span>
-        <h1>Learn About <em>Anemia</em></h1>
-        <p>
-          Simple, honest articles about anemia — written for people, not
-          doctors.
-        </p>
-      </div>
-    </section>
-
-    <section class="tips-section">
-      <div class="container">
-        <div class="tips-grid">
-          {% for tip in tips %}
-          <a
-            href="{{ tip.link }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="tip-card"
-            style="animation-delay: {{ loop.index0 * 0.1 }}s"
-          >
-            <div class="tip-top">
-              <span class="tip-number">{{ tip.icon }}</span>
-              <span class="tip-tag">{{ tip.tag }}</span>
-            </div>
-            <h3>{{ tip.title }}</h3>
-            <p>{{ tip.body }}</p>
-            <div class="tip-footer">
-              <span class="tip-read">{{ tip.read }}</span>
-              <span class="tip-cta">Read article &rarr;</span>
-            </div>
-          </a>
-          {% endfor %}
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div>
+          <span class="eyebrow">Health Education</span>
+          <h1>Learn About <span style="color:var(--crimson)">Anemia</span></h1>
+          <p>Simple, honest articles about anemia from trusted medical sources — written for people, not doctors.</p>
         </div>
+        <div class="page-hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+          Trusted Medical Sources
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="tips-bottom-cta">
-          <h3>Ready to check your own risk?</h3>
-          <p>Use our free tools — no signup required.</p>
-          <div class="tips-cta-btns">
-            <a href="/check" class="btn-primary">Check Blood Values</a>
-            <a href="/symptoms" class="btn-ghost">Check Symptoms</a>
+  <section class="tips-section">
+    <div class="container">
+      <div class="tips-grid">
+        {% for tip in tips %}
+        <a href="{{ tip.link }}" target="_blank" rel="noopener noreferrer" class="tip-card">
+          <div class="tip-top">
+            <span class="tip-number">{{ tip.icon }}</span>
+            <span class="tip-tag">{{ tip.tag }}</span>
           </div>
+          <h3>{{ tip.title }}</h3>
+          <p>{{ tip.body }}</p>
+          <div class="tip-footer">
+            <span class="tip-read">{{ tip.read }}</span>
+            <span class="tip-cta">Read article →</span>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+
+      <div class="tips-cta-box">
+        <h3>Ready to check your risk?</h3>
+        <p>Use our free tools — no signup required.</p>
+        <div class="tips-cta-btns">
+          <a href="/check" class="btn btn-primary">Check Blood Values</a>
+          <a href="/symptoms" class="btn btn-secondary" style="color:white;border-color:rgba(255,255,255,0.2)">Check Symptoms</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    {% include 'footer.html' %}
-    <script src="/static/js/main.js"></script>
-  </body>
+  {% include 'footer.html' %}
+  <script src="/static/js/main.js"></script>
+</body>
 </html>

@@ -1,167 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Khoon Naama — Anemia Risk Platform</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/static/css/style.css" />
-  </head>
-  <body>
-    {% include 'navbar.html' %}
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khoon Naama — AI Blood Health Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  {% include 'navbar.html' %}
 
-    <section class="hero-home">
-      <div class="container">
-        <div class="hero-home-inner">
-          <div class="hero-left">
-            <p class="hero-eyebrow">AI-Powered Health Tool</p>
-            <h1>
-              Know your<br /><span class="text-rose">anemia risk</span><br />in
-              seconds.
-            </h1>
-            <p class="hero-body">
-              Enter your CBC blood test values and get instant results, severity
-              analysis, a personalized diet plan, and a downloadable medical
-              report.
-            </p>
-            <div class="hero-actions">
-              <a href="/check" class="btn-primary">Check Blood Values</a>
-              <a href="/symptoms" class="btn-secondary">Check Symptoms</a>
-            </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-label">
+            <span class="hero-label-dot"></span>
+            AI-Powered CBC Analysis
           </div>
-          <div class="hero-right">
-            <div class="hero-panel">
-              <div class="hp-label">Sample Result</div>
-              <div class="hp-row">
-                <span class="hp-test">Hemoglobin</span>
-                <span class="hp-val">9.2 g/dL</span>
-                <span class="hp-status status-low">Low</span>
-              </div>
-              <div class="hp-row">
-                <span class="hp-test">MCH</span>
-                <span class="hp-val">28.1 pg</span>
-                <span class="hp-status status-ok">Normal</span>
-              </div>
-              <div class="hp-row">
-                <span class="hp-test">MCHC</span>
-                <span class="hp-val">32.4 g/dL</span>
-                <span class="hp-status status-ok">Normal</span>
-              </div>
-              <div class="hp-row">
-                <span class="hp-test">MCV</span>
-                <span class="hp-val">85.0 fL</span>
-                <span class="hp-status status-ok">Normal</span>
-              </div>
-              <div class="hp-result">
-                <span class="hp-result-label">Diagnosis</span>
-                <span class="hp-result-val">Mild Anemia</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="tools-section">
-      <div class="container">
-        <div class="section-header">
-          <p class="section-eyebrow">Platform</p>
-          <h2>Three tools, one platform.</h2>
-          <p class="section-body">
-            Everything you need to understand and manage anemia risk — no signup
-            required.
+          <h1 class="hero-title">
+            Understand Your<br/>
+            <span>Blood Report.</span><br/>
+            Without Jargon.
+          </h1>
+          <p class="hero-subtitle">
+            AI-powered analysis of CBC reports, anemia risk assessment, and personalized nutrition guidance — in language anyone can understand.
           </p>
-        </div>
-        <div class="tools-grid">
-          <a href="/check" class="tool-card">
-            <div class="tool-number">01</div>
-            <h3>Blood Test Analyzer</h3>
-            <p>
-              Enter your CBC values and get instant AI-powered anemia risk
-              analysis with visual charts and a PDF report.
-            </p>
-            <span class="tool-link">Analyze now &rarr;</span>
-          </a>
-          <a href="/symptoms" class="tool-card tool-card-accent">
-            <div class="tool-number">02</div>
-            <h3>Symptom Checker</h3>
-            <p>
-              No blood test? Select your symptoms and get a risk score with
-              actionable recommendations.
-            </p>
-            <span class="tool-link">Check symptoms &rarr;</span>
-          </a>
-          <a href="/bmi" class="tool-card">
-            <div class="tool-number">03</div>
-            <h3>BMI + Diet Planner</h3>
-            <p>
-              Combine your body measurements with anemia status for a fully
-              personalized nutrition plan.
-            </p>
-            <span class="tool-link">Plan my diet &rarr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="story-section">
-      <div class="container">
-        <div class="story-inner">
-          <div class="story-left">
-            <p class="section-eyebrow">Why This Exists</p>
-            <h2>
-              "I was diagnosed with anemia and could not find a simple tool to
-              understand my results."
-            </h2>
-            <p>
-              Most medical tools are built for doctors. Khoon Naama is built for
-              people — honest, simple, and human.
-            </p>
-            <div class="story-author">
-              <div class="author-info">
-                <span class="author-name">Fiza</span>
-                <span class="author-role">Builder · Anemia Survivor</span>
-              </div>
-            </div>
+          <div class="hero-actions">
+            <a href="/check" class="btn btn-primary btn-lg">Check Your Blood Health</a>
+            <a href="/symptoms" class="btn btn-secondary btn-lg">Check Symptoms</a>
           </div>
-          <div class="story-right">
-            <div class="stats-grid">
-              <div class="stat-box">
-                <div class="stat-number">1,421</div>
-                <div class="stat-label">Patients in training data</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Model accuracy</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Severity levels</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Tools available</div>
-              </div>
+          <div class="cred-badges">
+            <span class="cred-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              AI Powered
+            </span>
+            <span class="cred-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Educational Only
+            </span>
+            <span class="cred-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              CBC Analysis
+            </span>
+            <span class="cred-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Personalized Diet Plan
+            </span>
+            <span class="cred-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Free PDF Report
+            </span>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <span class="hero-stat-num">1,421</span>
+              <span class="hero-stat-label">Clinical Samples</span>
+            </div>
+            <div>
+              <span class="hero-stat-num">100%</span>
+              <span class="hero-stat-label">Model Accuracy</span>
+            </div>
+            <div>
+              <span class="hero-stat-num">4</span>
+              <span class="hero-stat-label">CBC Biomarkers</span>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="cta-section">
-      <div class="container">
-        <div class="cta-inner">
-          <h2>Ready to check your risk?</h2>
-          <p>Free, instant, and no signup required.</p>
-          <a href="/check" class="btn-primary">Check Blood Values</a>
+        <!-- DASHBOARD MOCKUP -->
+        <div class="hero-visual">
+          <div class="float-card float-card-1">
+            <span class="float-icon">🩸</span>
+            <div>
+              <div class="float-title">Hemoglobin</div>
+              <div class="float-sub">9.2 g/dL · Below Normal</div>
+            </div>
+          </div>
+          <div class="hero-dashboard">
+            <div class="hd-header">
+              <span class="hd-title">Blood Health Report</span>
+              <span class="hd-badge">Analysis Complete</span>
+            </div>
+            <div class="hd-metrics">
+              <div class="hd-metric">
+                <div class="hd-metric-label">Hemoglobin</div>
+                <div class="hd-metric-val low">9.2</div>
+                <div class="hd-metric-sub">g/dL · Low</div>
+              </div>
+              <div class="hd-metric">
+                <div class="hd-metric-label">MCV</div>
+                <div class="hd-metric-val ok">85.0</div>
+                <div class="hd-metric-sub">fL · Normal</div>
+              </div>
+              <div class="hd-metric">
+                <div class="hd-metric-label">MCH</div>
+                <div class="hd-metric-val ok">28.1</div>
+                <div class="hd-metric-sub">pg · Normal</div>
+              </div>
+              <div class="hd-metric">
+                <div class="hd-metric-label">MCHC</div>
+                <div class="hd-metric-val ok">32.4</div>
+                <div class="hd-metric-sub">g/dL · Normal</div>
+              </div>
+            </div>
+            <div class="hd-bar-section">
+              <div class="hd-bar-label">
+                <span>Hemoglobin</span>
+                <span>9.2 / 12.0 min</span>
+              </div>
+              <div class="hd-bar">
+                <div class="hd-bar-fill low" style="width:52%"></div>
+              </div>
+            </div>
+            <div class="hd-bar-section">
+              <div class="hd-bar-label">
+                <span>MCV</span>
+                <span>85.0 / 80–100</span>
+              </div>
+              <div class="hd-bar">
+                <div class="hd-bar-fill ok" style="width:78%"></div>
+              </div>
+            </div>
+            <div class="hd-result">
+              <div>
+                <div class="hd-result-label">AI Diagnosis</div>
+                <div class="hd-result-val">Mild Anemia Detected</div>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A11D33" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            </div>
+          </div>
+          <div class="float-card float-card-2">
+            <span class="float-icon">📄</span>
+            <div>
+              <div class="float-title">PDF Report Ready</div>
+              <div class="float-sub">Download personalized report</div>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    {% include 'footer.html' %}
-    <script src="/static/js/main.js"></script>
-  </body>
+  <!-- STORY SECTION -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-inner">
+        <div>
+          <span class="eyebrow">Why Khoon Naama Exists</span>
+          <h2 class="section-title">Built From<br/>Personal Experience</h2>
+          <p class="section-body" style="margin-bottom:2rem">
+            When I was diagnosed with anemia, I received a lab report full of numbers — Hemoglobin, MCH, MCHC, MCV — and had no idea what any of it meant. My doctor used medical terms. The internet gave me anxiety. Nobody explained it in simple language.
+          </p>
+          <p class="section-body" style="margin-bottom:2rem">
+            So I built Khoon Naama — an AI tool that reads your CBC report and explains it the way a knowledgeable friend would. Not a doctor. A friend.
+          </p>
+          <a href="/check" class="btn btn-primary">Try It Free</a>
+        </div>
+        <div class="story-visual">
+          <div class="story-quote">
+            I built the tool I wished existed when I was sitting in that clinic, confused and scared.
+          </div>
+          <div class="story-author">
+            <div class="story-avatar">F</div>
+            <div>
+              <div class="story-author-name">Fiza</div>
+              <div class="story-author-role">Builder · Anemia Survivor · CS Student</div>
+            </div>
+          </div>
+          <div class="story-stats">
+            <div class="story-stat">
+              <span class="story-stat-num">1,421</span>
+              <span class="story-stat-label">Real patients in training data</span>
+            </div>
+            <div class="story-stat">
+              <span class="story-stat-num">100%</span>
+              <span class="story-stat-label">Model accuracy</span>
+            </div>
+            <div class="story-stat">
+              <span class="story-stat-num">3</span>
+              <span class="story-stat-label">Tools in one platform</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="eyebrow">Platform Features</span>
+        <h2 class="section-title">Everything You Need to<br/>Understand Your Blood</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <h3 class="feature-title">CBC Analyzer</h3>
+          <p class="feature-desc">Enter your Hemoglobin, MCH, MCHC, and MCV values and get an instant AI-powered anemia risk prediction with clear visual charts.</p>
+          <a href="/check" class="feature-link">Analyze Now →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.5 12.5l3 3 3-3M4.5 8l3 3 3-3M15.5 8l3 3-3 3"/><path d="M8 7H3m18 5H3M21 17H8"/></svg>
+          </div>
+          <h3 class="feature-title">Symptom Checker</h3>
+          <p class="feature-desc">No blood test? Select your symptoms and get an instant anemia risk score with actionable next steps and recommendations.</p>
+          <a href="/symptoms" class="feature-link">Check Symptoms →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+          </div>
+          <h3 class="feature-title">Personalized Diet Plan</h3>
+          <p class="feature-desc">Based on your severity level, get a custom food plan with locally available iron-rich foods including Urdu food names.</p>
+          <a href="/check" class="feature-link">Get Diet Plan →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <h3 class="feature-title">BMI Calculator</h3>
+          <p class="feature-desc">Combine your BMI with anemia status for a comprehensive health picture and an integrated diet and nutrition plan.</p>
+          <a href="/bmi" class="feature-link">Calculate BMI →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="feature-title">PDF Report</h3>
+          <p class="feature-desc">Download a professional medical-style PDF report with all your values, results, severity level, and personalized diet recommendations.</p>
+          <a href="/check" class="feature-link">Download Report →</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+          </div>
+          <h3 class="feature-title">Health Articles</h3>
+          <p class="feature-desc">Curated, linked articles from trusted medical sources — WHO, Mayo Clinic, NHS, and Healthline — for deeper learning.</p>
+          <a href="/tips" class="feature-link">Read Articles →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="eyebrow">Simple Process</span>
+        <h2 class="section-title">How Khoon Naama Works</h2>
+      </div>
+      <div class="how-steps">
+        <div class="how-step active">
+          <div class="how-step-num">01</div>
+          <h3 class="how-step-title">Enter CBC Values</h3>
+          <p class="how-step-desc">Input your Hemoglobin, MCH, MCHC, and MCV values from your lab report</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">02</div>
+          <h3 class="how-step-title">AI Analyzes</h3>
+          <p class="how-step-desc">Our Random Forest model trained on 1,421 patients predicts your anemia risk instantly</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">03</div>
+          <h3 class="how-step-title">See Results</h3>
+          <p class="how-step-desc">Get severity level, visual charts, and a plain-language explanation of your values</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">04</div>
+          <h3 class="how-step-title">Get Your Plan</h3>
+          <p class="how-step-desc">Receive personalized diet recommendations and download your PDF report</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section class="metrics-section">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <span class="metric-num">1,421</span>
+          <span class="metric-label">Clinical Samples</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-num">100%</span>
+          <span class="metric-label">Model Accuracy</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-num">4</span>
+          <span class="metric-label">CBC Biomarkers</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-num">3</span>
+          <span class="metric-label">Tools Available</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="eyebrow">Common Questions</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is Khoon Naama a substitute for a doctor?
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-answer">No. Khoon Naama is an educational awareness tool only. It helps you understand your CBC report in simple language, but it does not provide a medical diagnosis. Always consult a qualified doctor for diagnosis and treatment.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What is CBC and where do I find these values?
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-answer">CBC stands for Complete Blood Count. It is a standard blood test available at any laboratory. The values you need — Hemoglobin, MCH, MCHC, and MCV — appear on your lab report, usually in the first section.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How accurate is the AI model?
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-answer">The Random Forest model was trained on 1,421 real clinical patient records and achieves 100% accuracy on our test set. However, accuracy on real-world data may vary. This is why we always recommend consulting a doctor.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is my data stored or shared?
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-answer">No. Khoon Naama does not store any personal data, blood values, or health information. Everything is processed in real time and discarded immediately. Your health data stays private.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is Khoon Naama free to use?
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-answer">Yes, completely free. No signup required, no credit card, no subscription. Khoon Naama is built as a public health awareness tool.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section class="refs-section">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="eyebrow">Trusted Sources</span>
+        <h2 class="section-title">Built on Medical Evidence</h2>
+      </div>
+      <div class="refs-grid">
+        <div class="ref-card">
+          <div class="ref-name">WHO</div>
+          <div class="ref-desc">World Health Organization</div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">NHS</div>
+          <div class="ref-desc">National Health Service UK</div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Mayo Clinic</div>
+          <div class="ref-desc">Mayo Foundation</div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Healthline</div>
+          <div class="ref-desc">Medical peer-reviewed content</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% include 'footer.html' %}
+
+  <script src="/static/js/main.js"></script>
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('open');
+    }
+    function toggleMobileNav() {
+      const menu = document.getElementById('navMobile');
+      menu.classList.toggle('open');
+    }
+  </script>
+</body>
 </html>

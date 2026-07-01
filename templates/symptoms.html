@@ -1,171 +1,140 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Symptom Checker — خون نامہ</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/static/css/style.css" />
-  </head>
-  <body>
-    {% include 'navbar.html' %}
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Symptom Checker — Khoon Naama</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  {% include 'navbar.html' %}
 
-    <section class="page-hero soft">
-      <div class="container">
-        <span class="section-tag">No Blood Test Needed</span>
-        <h1>Symptom <em>Checker</em></h1>
-        <p>
-          Select all symptoms you have been experiencing. We will calculate your
-          anemia risk score instantly.
-        </p>
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div>
+          <span class="eyebrow">No Blood Test Needed</span>
+          <h1>Symptom <span style="color:var(--crimson)">Checker</span></h1>
+          <p>Select all symptoms you have been experiencing. Our AI will calculate your anemia risk score and give you actionable guidance.</p>
+        </div>
+        <div class="page-hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          Symptom-Based Assessment
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="symptoms-section">
-      <div class="container-sm">
-        <div class="symptoms-grid">
-          <label class="symptom-card" data-symptom="fatigue">
-            <input type="checkbox" value="fatigue" />
-            <div class="sc-icon">😴</div>
-            <div class="sc-name">Fatigue & Weakness</div>
-            <div class="sc-desc">Feeling tired even after rest</div>
-            <div class="sc-check">✓</div>
-          </label>
-          <label class="symptom-card" data-symptom="pale">
-            <input type="checkbox" value="pale" />
-            <div class="sc-icon">😶</div>
-            <div class="sc-name">Pale Skin</div>
-            <div class="sc-desc">Skin, gums or nails look pale</div>
-            <div class="sc-check">✓</div>
-          </label>
-          <label class="symptom-card" data-symptom="breath">
-            <input type="checkbox" value="breath" />
-            <div class="sc-icon">😮‍💨</div>
-            <div class="sc-name">Shortness of Breath</div>
-            <div class="sc-desc">Breathless during light activity</div>
-            <div class="sc-check">✓</div>
-          </label>
-          <label class="symptom-card" data-symptom="dizzy">
-            <input type="checkbox" value="dizzy" />
-            <div class="sc-icon">💫</div>
-            <div class="sc-name">Dizziness</div>
-            <div class="sc-desc">Feeling faint or lightheaded</div>
-            <div class="sc-check">✓</div>
-          </label>
-          <label class="symptom-card" data-symptom="headache">
-            <input type="checkbox" value="headache" />
-            <div class="sc-icon">🤕</div>
-            <div class="sc-name">Frequent Headaches</div>
-            <div class="sc-desc">Recurring pain in the head</div>
-            <div class="sc-check">✓</div>
-          </label>
-          <label class="symptom-card" data-symptom="cold">
-            <input type="checkbox" value="cold" />
-            <div class="sc-icon">🥶</div>
-            <div class="sc-name">Cold Hands & Feet</div>
-            <div class="sc-desc">Extremities feel unusually cold</div>
-            <div class="sc-check">✓</div>
-          </label>
-          <label class="symptom-card" data-symptom="heart">
-            <input type="checkbox" value="heart" />
-            <div class="sc-icon">💓</div>
-            <div class="sc-name">Rapid Heartbeat</div>
-            <div class="sc-desc">Heart beats faster than usual</div>
-            <div class="sc-check">✓</div>
-          </label>
-          <label class="symptom-card" data-symptom="nails">
-            <input type="checkbox" value="nails" />
-            <div class="sc-icon">💅</div>
-            <div class="sc-name">Brittle Nails</div>
-            <div class="sc-desc">Nails break or chip easily</div>
-            <div class="sc-check">✓</div>
-          </label>
-          <label class="symptom-card" data-symptom="concentration">
-            <input type="checkbox" value="concentration" />
-            <div class="sc-icon">🧠</div>
-            <div class="sc-name">Poor Concentration</div>
-            <div class="sc-desc">Difficulty focusing or brain fog</div>
-            <div class="sc-check">✓</div>
-          </label>
-          <label class="symptom-card" data-symptom="appetite">
-            <input type="checkbox" value="appetite" />
-            <div class="sc-icon">🍽️</div>
-            <div class="sc-name">Loss of Appetite</div>
-            <div class="sc-desc">Not feeling hungry or nauseous</div>
-            <div class="sc-check">✓</div>
-          </label>
-        </div>
+  <section class="symptoms-section">
+    <div class="container-sm">
+      <div class="symptoms-grid">
+        <label class="symptom-card" data-symptom="fatigue">
+          <input type="checkbox" value="fatigue"/>
+          <div class="symptom-check">✓</div>
+          <div class="symptom-name">Fatigue & Weakness</div>
+          <div class="symptom-desc">Feeling tired even after adequate rest</div>
+        </label>
+        <label class="symptom-card" data-symptom="pale">
+          <input type="checkbox" value="pale"/>
+          <div class="symptom-check">✓</div>
+          <div class="symptom-name">Pale Skin</div>
+          <div class="symptom-desc">Skin, gums, or nails look unusually pale</div>
+        </label>
+        <label class="symptom-card" data-symptom="breath">
+          <input type="checkbox" value="breath"/>
+          <div class="symptom-check">✓</div>
+          <div class="symptom-name">Shortness of Breath</div>
+          <div class="symptom-desc">Breathless during light activity</div>
+        </label>
+        <label class="symptom-card" data-symptom="dizzy">
+          <input type="checkbox" value="dizzy"/>
+          <div class="symptom-check">✓</div>
+          <div class="symptom-name">Dizziness</div>
+          <div class="symptom-desc">Feeling faint or lightheaded</div>
+        </label>
+        <label class="symptom-card" data-symptom="headache">
+          <input type="checkbox" value="headache"/>
+          <div class="symptom-check">✓</div>
+          <div class="symptom-name">Frequent Headaches</div>
+          <div class="symptom-desc">Recurring pain or pressure in the head</div>
+        </label>
+        <label class="symptom-card" data-symptom="cold">
+          <input type="checkbox" value="cold"/>
+          <div class="symptom-check">✓</div>
+          <div class="symptom-name">Cold Hands & Feet</div>
+          <div class="symptom-desc">Extremities feel unusually cold</div>
+        </label>
+        <label class="symptom-card" data-symptom="heart">
+          <input type="checkbox" value="heart"/>
+          <div class="symptom-check">✓</div>
+          <div class="symptom-name">Rapid Heartbeat</div>
+          <div class="symptom-desc">Heart beats faster than usual at rest</div>
+        </label>
+        <label class="symptom-card" data-symptom="nails">
+          <input type="checkbox" value="nails"/>
+          <div class="symptom-check">✓</div>
+          <div class="symptom-name">Brittle Nails</div>
+          <div class="symptom-desc">Nails break or chip easily</div>
+        </label>
+        <label class="symptom-card" data-symptom="concentration">
+          <input type="checkbox" value="concentration"/>
+          <div class="symptom-check">✓</div>
+          <div class="symptom-name">Poor Concentration</div>
+          <div class="symptom-desc">Difficulty focusing or brain fog</div>
+        </label>
+        <label class="symptom-card" data-symptom="appetite">
+          <input type="checkbox" value="appetite"/>
+          <div class="symptom-check">✓</div>
+          <div class="symptom-name">Loss of Appetite</div>
+          <div class="symptom-desc">Not feeling hungry or feeling nauseous</div>
+        </label>
+      </div>
 
-        <div class="symptom-counter">
-          <span id="selectedCount">0</span> of 10 symptoms selected
-        </div>
+      <div class="symptom-counter">
+        <span id="selectedCount">0</span> of 10 symptoms selected
+      </div>
 
-        <button
-          class="btn-analyze"
-          id="checkSymptomsBtn"
-          onclick="checkSymptoms()"
-        >
-          Check My Risk Score
-        </button>
+      <button class="btn-analyze" id="checkSymptomsBtn" onclick="checkSymptoms()">
+        Check My Risk Score
+      </button>
 
-        <!-- RESULT -->
-        <div id="symptomResult" class="hidden">
-          <div id="symptomBanner" class="result-banner"></div>
+      <div id="symptomResult" class="results hidden">
+        <div id="symptomBanner" class="result-banner"></div>
+        <div class="result-card">
+          <div class="result-card-title">Risk Assessment Score</div>
           <div class="score-visual">
             <div class="score-ring">
               <svg viewBox="0 0 120 120">
-                <circle
-                  cx="60"
-                  cy="60"
-                  r="50"
-                  fill="none"
-                  stroke="#f0d4de"
-                  stroke-width="10"
-                />
-                <circle
-                  id="scoreArc"
-                  cx="60"
-                  cy="60"
-                  r="50"
-                  fill="none"
-                  stroke="var(--rose)"
-                  stroke-width="10"
-                  stroke-dasharray="314"
-                  stroke-dashoffset="314"
-                  stroke-linecap="round"
-                  transform="rotate(-90 60 60)"
-                />
+                <circle cx="60" cy="60" r="50" fill="none" stroke="var(--border)" stroke-width="10"/>
+                <circle id="scoreArc" cx="60" cy="60" r="50" fill="none"
+                  stroke="var(--crimson)" stroke-width="10"
+                  stroke-dasharray="314" stroke-dashoffset="314"
+                  stroke-linecap="round" transform="rotate(-90 60 60)"
+                  style="transition: stroke-dashoffset 0.8s ease"/>
               </svg>
               <div class="score-center">
                 <div id="scoreNum" class="score-num">0</div>
                 <div class="score-label">/ 10</div>
               </div>
             </div>
-            <div class="score-info">
+            <div>
               <div id="scoreRisk" class="score-risk"></div>
-              <div id="scoreMessage" class="score-message"></div>
-              <a
-                href="/check"
-                class="btn-rose"
-                style="margin-top: 1.5rem; display: inline-block"
-              >
+              <div id="scoreMessage" class="score-msg"></div>
+              <a href="/check" class="btn btn-primary" style="margin-top:1.5rem;display:inline-flex">
                 Take Blood Test →
               </a>
             </div>
           </div>
-          <div class="disclaimer">
-            ⚠️ This symptom checker is not a diagnosis. Please consult a doctor
-            for confirmation.
-          </div>
+        </div>
+        <div class="disclaimer">
+          This symptom checker is not a diagnosis. Please consult a doctor for proper evaluation.
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    {% include 'footer.html' %}
-
-    <script src="/static/js/symptoms.js"></script>
-  </body>
+  {% include 'footer.html' %}
+  <script src="/static/js/symptoms.js"></script>
+</body>
 </html>

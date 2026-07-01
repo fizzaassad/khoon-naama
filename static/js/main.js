@@ -192,3 +192,14 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     link.classList.add('active');
   }
 });
+function toggleMobileNav() {
+  const menu = document.getElementById('navMobile');
+  const burger = document.querySelector('.nav-burger');
+  if (menu) menu.classList.toggle('open');
+  if (burger) burger.classList.toggle('open');
+}
+
+// Active nav link
+document.querySelectorAll('.nav-links a').forEach(link => {
+  if (link.href === window.location.href) link.classList.add('active');
+});

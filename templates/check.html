@@ -3,117 +3,107 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blood Test — خون نامہ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,600&display=swap" rel="stylesheet"/>
+  <title>Blood Test Analyzer — Khoon Naama</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/static/css/style.css"/>
 </head>
 <body>
-
   {% include 'navbar.html' %}
 
-  <section class="page-hero rose">
+  <section class="page-hero">
     <div class="container">
-      <span class="section-tag">AI-Powered</span>
-      <h1>Blood Test <em>Analyzer</em></h1>
-      <p>Enter your CBC values. Get instant results, severity level, personalized diet and a PDF report.</p>
+      <div class="page-hero-inner">
+        <div>
+          <span class="eyebrow">CBC Analysis</span>
+          <h1>Blood Test <span style="color:var(--crimson)">Analyzer</span></h1>
+          <p>Enter your CBC blood test values for instant AI-powered anemia risk analysis, visual charts, and a personalized diet plan.</p>
+        </div>
+        <div class="page-hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          AI-Powered · Educational Only
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="check-section">
+  <section class="form-section">
     <div class="container-sm">
-
       <div class="form-card">
         <form id="anemiaForm">
-
           <div class="form-block">
-            <div class="form-block-title">
-              <span class="fb-num">01</span>
-              <span>Personal Information</span>
+            <div class="form-block-header">
+              <div class="form-block-num">1</div>
+              <span class="form-block-title">Personal Information</span>
             </div>
-            <div class="fg three">
+            <div class="form-grid form-grid-3">
               <div class="form-group">
-                <label>Full Name</label>
-                <input type="text" id="name" placeholder="Your name" required/>
+                <label class="form-label">Full Name</label>
+                <input type="text" id="name" class="form-input" placeholder="Your name" required/>
               </div>
               <div class="form-group">
-                <label>Age</label>
-                <input type="number" id="age" placeholder="Age" min="1" max="100" required/>
+                <label class="form-label">Age</label>
+                <input type="number" id="age" class="form-input" placeholder="Your age" min="1" max="100" required/>
               </div>
               <div class="form-group">
-                <label>Gender</label>
-                <select id="gender">
+                <label class="form-label">Gender</label>
+                <select id="gender" class="form-select">
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                 </select>
               </div>
             </div>
           </div>
-
           <div class="form-block">
-            <div class="form-block-title">
-              <span class="fb-num">02</span>
-              <span>Blood Test Values <span style="font-weight:400;font-size:0.85rem;color:var(--text-soft)">(from your CBC report)</span></span>
+            <div class="form-block-header">
+              <div class="form-block-num">2</div>
+              <span class="form-block-title">CBC Blood Test Values</span>
             </div>
-            <div class="fg four">
+            <div class="form-grid form-grid-4">
               <div class="form-group">
-                <label>Hemoglobin <em>g/dL</em></label>
-                <input type="number" id="hemoglobin" placeholder="e.g. 13.5" step="0.1" min="1" max="25" required/>
-                <span class="hint">M: 13.5–17.5 · F: 12.0–15.5</span>
+                <label class="form-label">Hemoglobin <em>g/dL</em></label>
+                <input type="number" id="hemoglobin" class="form-input" placeholder="e.g. 13.5" step="0.1" min="1" max="25" required/>
+                <span class="form-hint">M: 13.5–17.5 · F: 12.0–15.5</span>
               </div>
               <div class="form-group">
-                <label>MCH <em>pg</em></label>
-                <input type="number" id="mch" placeholder="e.g. 27.0" step="0.1" min="1" max="50" required/>
-                <span class="hint">Normal: 27–33</span>
+                <label class="form-label">MCH <em>pg</em></label>
+                <input type="number" id="mch" class="form-input" placeholder="e.g. 27.0" step="0.1" min="1" max="50" required/>
+                <span class="form-hint">Normal: 27–33</span>
               </div>
               <div class="form-group">
-                <label>MCHC <em>g/dL</em></label>
-                <input type="number" id="mchc" placeholder="e.g. 31.5" step="0.1" min="1" max="50" required/>
-                <span class="hint">Normal: 31.5–35.7</span>
+                <label class="form-label">MCHC <em>g/dL</em></label>
+                <input type="number" id="mchc" class="form-input" placeholder="e.g. 31.5" step="0.1" min="1" max="50" required/>
+                <span class="form-hint">Normal: 31.5–35.7</span>
               </div>
               <div class="form-group">
-                <label>MCV <em>fL</em></label>
-                <input type="number" id="mcv" placeholder="e.g. 85.0" step="0.1" min="1" max="150" required/>
-                <span class="hint">Normal: 80–100</span>
+                <label class="form-label">MCV <em>fL</em></label>
+                <input type="number" id="mcv" class="form-input" placeholder="e.g. 85.0" step="0.1" min="1" max="150" required/>
+                <span class="form-hint">Normal: 80–100</span>
               </div>
             </div>
           </div>
-
-          <button type="submit" class="btn-analyze">
-            <span id="btnText">🔍 Analyze My Results</span>
+          <button type="submit" class="btn-analyze" id="analyzeBtn">
+            <span id="btnText">Analyze My Results</span>
           </button>
-
         </form>
       </div>
 
-      <!-- RESULTS -->
       <div id="results" class="results hidden">
-
         <div id="resultBanner" class="result-banner"></div>
-
-        <div class="metrics-grid" id="metricsGrid"></div>
-
+        <div class="metrics-row" id="metricsGrid"></div>
         <div class="result-card">
-          <div class="rc-title">📊 Your Values vs Normal Range</div>
+          <div class="result-card-title">Values vs Normal Range</div>
           <canvas id="valuesChart"></canvas>
         </div>
-
         <div class="result-card" id="dietCard"></div>
-
-        <button id="pdfBtn" class="btn-pdf">
-          ⬇️ Download My Khoon Naama Report
-        </button>
-
+        <button id="pdfBtn" class="btn-pdf">Download PDF Report</button>
         <div class="disclaimer">
-          ⚠️ <strong>Medical Disclaimer:</strong> Khoon Naama is an awareness tool only.
-          Always consult a qualified doctor for diagnosis and treatment.
+          <strong>Medical Disclaimer:</strong> Khoon Naama is an educational awareness tool only. Results do not constitute medical advice or diagnosis. Always consult a qualified healthcare provider.
         </div>
-
       </div>
     </div>
   </section>
 
   {% include 'footer.html' %}
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="/static/js/main.js"></script>
 </body>
